@@ -6,7 +6,9 @@ function minus(a, b) {
     return a -b;
 }
 
-module.exports = {
-    plus,
-    minus,
-};
+// module.exports = {
+//     plus,
+//     minus,
+// };
+
+console.log(exports == module.exports);
