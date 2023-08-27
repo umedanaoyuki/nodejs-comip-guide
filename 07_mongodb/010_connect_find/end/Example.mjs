@@ -10,7 +10,7 @@ async function getCollection() {
     const db = client.db('bookshelf');
     return db.collection('books');
   } catch {
-    // await client.close();
+    await client.close();
   }
 }
 
@@ -21,5 +21,5 @@ async function getAllBooks() {
   const result = await cursor.toArray();
   console.log(result);
 
-//   await client.close();
+  await client.close();
 }
