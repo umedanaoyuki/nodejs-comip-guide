@@ -3,7 +3,12 @@ import * as http from "http";
 
 const server = http.createServer(function (req, res){
     console.log(req.url);
-    res.end('bye');
+
+    if (req.url === '/hello') {
+        res.end('hello');
+    } else if (req.url === '/bye') {
+        res.end('bye');
+    }
 });
 
 // サーバーが立ち上がる
