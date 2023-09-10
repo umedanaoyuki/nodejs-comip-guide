@@ -27,7 +27,7 @@ app.get('/', function (req, res) {
 app.post('/cart', function (req, res) {
   const products = req.body.product;
   res.send(
-      `${products[0]}、${products[1]}がカートに追加されました。</h1>`
+      `${products.join(",")}がカートに追加されました。</h1>`
   );
 });
 
