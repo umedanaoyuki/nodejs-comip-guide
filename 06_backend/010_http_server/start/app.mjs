@@ -1,24 +1,27 @@
-//簡易的なサーバーを作る方法
 import * as http from "http";
 
-//content-type
-// ブラウザとサーバーが通信しているコンテンツのフォーマットと文字コードの情報
+/**
+ * リクエストメソッド
+ *
+ * GETメソッド：　コンテンツの取得
+ * 　　タイミング：ブラウザのURLの指定、リンクのクリック、<form>のデフォルト
+ * 　　特徴：URLの一部にパラメータを渡す
+ *
+ * POSTメソッド：　コンテンツの作成
+ * 　　タイミング：<form>のPOSTメソッド
+ * 　　特徴：リクエストの本文にパラメータを渡す
+ */
 
 const server = http.createServer(function (req, res){
+    res.writeHead(200, {'content-type': 'text/html; charset=UTF-8'});
     console.log(req.url);
-    // res.writeHead(302,{location: '/redirected'});
-    //ブラウザ上でしか動作しないので、記述するとクラッシュする
-    // window.alert("メッセージ");
 
-    if (req.url === '/hello') {
-        //helloでアクセスしたら 302レスポンスの/redirectedへリダイレクトするようにする
-        res.writeHead(302, {location: '/redirected'});
-        //そのため、ここには行かない
-        res.end('<h1>こんにちは</h1>');
+    if (req.url === '/') {
+
+        res.end('<a href="/result">Get Method Link</a>');
     } else if (req.url === '/bye') {
         res.end('bye');
     } else {
-        //redirectedされたURLを返す
         res.end(req.url);
     }});
 
