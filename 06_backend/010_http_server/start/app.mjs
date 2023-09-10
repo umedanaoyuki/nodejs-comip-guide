@@ -14,6 +14,7 @@ import * as http from "http";
 
 const server = http.createServer(function (req, res){
     res.writeHead(200, {'content-type': 'text/html; charset=UTF-8'});
+    console.log('res 200');
     console.log(req.url);
 
     if (req.url === '/') {
@@ -28,9 +29,11 @@ const server = http.createServer(function (req, res){
         console.log(req.method);
         if (req.method === "GET") {
             //GETのパラメータを取得
-            const queryString = req.url.split("?")
-            const params = new URLSearchParams(queryString[1]);
-            console.log(params);
+            console.log(req.url.split("?"));
+            const queryString = req.url.split("?")[1];
+            const params = new URLSearchParams(queryString);
+            console.log("param1の取得")
+            console.log(params.get("param1"));
         }
         res.end(req.url);
     }});
