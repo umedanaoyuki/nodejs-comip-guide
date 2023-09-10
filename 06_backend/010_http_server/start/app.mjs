@@ -23,9 +23,15 @@ const server = http.createServer(function (req, res){
                     <input type="text" name="title">
                     <input type="submit">
                 </form>`)
-    } else if (req.url === '/bye') {
-        res.end('bye');
     } else {
+        console.log(req.url);
+        console.log(req.method);
+        if (req.method === "GET") {
+            //GETのパラメータを取得
+            const queryString = req.url.split("?")
+            const params = new URLSearchParams(queryString[1]);
+            console.log(params);
+        }
         res.end(req.url);
     }});
 
