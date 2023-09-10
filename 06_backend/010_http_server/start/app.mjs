@@ -1,12 +1,17 @@
 //簡易的なサーバーを作る方法
 import * as http from "http";
 
+//content-type
+// ブラウザとサーバーが通信しているコンテンツのフォーマットと文字コードの情報
+
 const server = http.createServer(function (req, res){
     console.log(req.url);
-    window.alert("メッセージ");
+    res.writeHead(200,{'content-type': 'text/html; charset=UTF-8'});
+    //ブラウザ上でしか動作しないので、記述するとクラッシュする
+    // window.alert("メッセージ");
 
     if (req.url === '/hello') {
-        res.end('<script>window.alert("frontend")</script>');
+        res.end('<h1>こんにちは</h1>');
     } else if (req.url === '/bye') {
         res.end('bye');
     }
