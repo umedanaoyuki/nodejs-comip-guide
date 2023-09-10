@@ -2,6 +2,11 @@ import express from 'express';
 
 const PORT = 8080;
 const app = express();
+app.use(express.urlencoded({extended: true}));
+
+app.listen(PORT, () => {
+  console.log(`Server Start: http://localhost:${PORT}`);
+})
 
 app.get('/', function (req, res) {
   res.send(`
