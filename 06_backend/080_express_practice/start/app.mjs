@@ -24,3 +24,9 @@ app.get('/', function (req, res) {
     `);
 });
 
+app.post('/cart', function (req, res) {
+  res.send(
+      `<h1>商品1、商品2がカートに追加されました。</h1>`
+  );
+});
+
