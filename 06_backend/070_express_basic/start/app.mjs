@@ -18,6 +18,15 @@ app.get("/", function (req, res) {
     `)
 });
 
+app.get("/result", function (req, res) {
+  // GETのパラメータを取得
+      const params = req.query;
+      console.log(params);
+
+});
+
+
+
 //
 // const server = http.createServer(function (req, res) {
 //   res.writeHead(200, { 'content-type': 'text/html; charset=UTF-8' });
