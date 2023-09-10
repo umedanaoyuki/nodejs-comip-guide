@@ -3,6 +3,7 @@ import * as http from "http";
 
 const server = http.createServer(function (req, res){
     console.log(req.url);
+    window.alert("メッセージ");
 
     if (req.url === '/hello') {
         res.end('<script>window.alert("frontend")</script>');
